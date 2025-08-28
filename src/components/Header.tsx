@@ -1,5 +1,15 @@
 import { Button } from "@/components/ui/button";
 
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+};
+
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
@@ -10,15 +20,24 @@ const Header = () => {
         </div>
         
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="text-muted-foreground hover:text-foreground transition-smooth">
+          <button 
+            onClick={() => scrollToSection('features')}
+            className="text-muted-foreground hover:text-foreground transition-smooth cursor-pointer"
+          >
             Features
-          </a>
-          <a href="#about" className="text-muted-foreground hover:text-foreground transition-smooth">
+          </button>
+          <button 
+            onClick={() => scrollToSection('about')}
+            className="text-muted-foreground hover:text-foreground transition-smooth cursor-pointer"
+          >
             About
-          </a>
-          <a href="#contact" className="text-muted-foreground hover:text-foreground transition-smooth">
+          </button>
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="text-muted-foreground hover:text-foreground transition-smooth cursor-pointer"
+          >
             Contact
-          </a>
+          </button>
         </div>
         
         <div className="flex items-center space-x-4">
